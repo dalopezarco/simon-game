@@ -1,1 +1,140 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-color: rgb(233, 158, 12)
+}
+
+.container-fluid{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.simonBoard{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 600px;
+  height: 600px;
+  border: solid 5px black;
+  border-radius: 600px;
+  overflow: hidden;
+}
+
+.pad{
+  margin:0;
+  float:left;
+  position: relative;
+  width: 295px;
+  height: 295px;
+  border: solid 3px black;
+  z-index:8;
+  cursor: pointer;
+}
+
+.green{
+  background-color: green;
+  border-radius: 300px 0 0 0;
+}
+
+.green-pushed{
+  background-color: #79ff82;
+  border-radius: 300px 0 0 0;
+}
+.red{
+  background-color: red;
+  border-radius: 0 300px 0 0;
+}
+.red-pushed{
+  background-color: #ee5c5c;
+  border-radius: 0 300px 0 0;
+}
+.yellow{
+  background-color: yellow;
+  border-radius:  0 0 0 300px;
+}
+
+.yellow-pushed{
+  background-color: #fffffb;
+  border-radius:  0 0 0 300px;
+}
+
+.blue{
+  background-color: blue;
+  border-radius: 0 0 300px 0;
+}
+.blue-pushed{
+  background-color: #509bff;
+  border-radius: 0 0 300px 0;
+}
+
+.controls{
+  width:245px;
+  height:245px;
+  margin-left:170px;
+  margin-top:170px;
+  background-color:white;
+  border: solid 5px black;
+  border-radius: 150px;
+  position:absolute;
+  z-index:10;
+  padding: 15px;
+
+}
+
+.fila{
+  width:220px;
+}
+
+.title{
+  margin-top:30px;
+  margin-bottom:10px;
+  font-size: 45px;
+}
+
+.on ,.off{
+  background-color: #47de28;
+  border: solid 3px #2a2b2b;
+  width: auto;
+  height: 30px;
+  cursor: pointer;
+}
+
+.on-np, .off-np{
+  background-color:#2a2b2b;
+  border: solid 3px #2a2b2b;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+}
+
+.strict{
+  margin-top: 8px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.display{
+  margin-right: 15px;
+  padding: 5px;
+  width:60px;
+  height: 40px;
+  background-color: #4a4d4b;
+  color:red;
+  font-size: 22px;
+}
+
+.strict-led{
+  height: 10px;
+  width: 10px;
+  background-color: #390000;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5px;
+}
+.strict-led-on{
+  height: 10px;
+  width: 10px;
+  background-color: #fc6262;
+  margin: solid 1px #390000;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5px;
+}

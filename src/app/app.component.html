@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <h2 *ngIf="flagError">Error! Vuelve a probar!</h2>
   <h2 *ngIf="flagBegin">Comienza el juego! Que te diviertas</h2>
+  <h2 *ngIf="flagWin">Has ganado! A ver si lo consigues de nuevo</h2>
 
   <div class="simonBoard ">
     <button id="0" class="pad" [ngClass]="{'green': !greenSts, 'green-pushed': greenSts}" (click)="illGreen(); addHuman(0)" [disabled]="procesoBool"></button>
@@ -11,7 +12,7 @@
     <div class="controls justify-content-center">
       <div class="title">SIMON</div>
       <div class="row justify-content-center fila align-items-center">
-        <div class="col-3 display">
+        <div class="col-3 display align-items-center">
           {{contador}}
         </div>
         <div class="col-3 text-center" [ngClass]="{'on': boolStatus, 'on-np': !boolStatus}"

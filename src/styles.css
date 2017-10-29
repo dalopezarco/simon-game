@@ -119,6 +119,8 @@ body{
   background-color: #4a4d4b;
   color:red;
   font-size: 22px;
+  border-radius: 3px;
+  border: solid 1px black;
 }
 
 .strict-led{

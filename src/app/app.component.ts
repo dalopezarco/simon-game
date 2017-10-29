@@ -13,12 +13,13 @@ export class AppComponent {
   yellowSts: boolean = false;
   arr: number[] = [];
   arrH: number[] = [];
-  contador:any = "--";
-  strict:boolean = false;
+  contador: any = "--";
+  strict: boolean = false;
   flagError = false;
   flagBegin = false;
   procesoBool = false;
   boolStatus: boolean = false;
+  flagWin:boolean = false;
 
   constructor() {
     // console.log("Entrando al constructor")
@@ -29,7 +30,7 @@ export class AppComponent {
   proceso(array) {
     this.procesoBool = true;
     var _this = this;
-    for (let i:number = 0; i < array.length; i++) {
+    for (let i: number = 0; i < array.length; i++) {
       setTimeout(function() {
         if (array[i] == 0) {
           _this.illGreen();
@@ -41,7 +42,7 @@ export class AppComponent {
           _this.illBlue();
         }
 
-        if((i+1)==array.length){
+        if ((i + 1) == array.length) {
 
           _this.procesoBool = false
         }
@@ -53,7 +54,10 @@ export class AppComponent {
 
   illGreen() {
     this.greenSts = true;
-
+    var audio = new Audio();
+    audio.src = "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3";
+    audio.load();
+    audio.play();
     let promesa = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.greenSts = false;
@@ -64,7 +68,10 @@ export class AppComponent {
   }
   illRed() {
     this.redSts = true;
-
+    var audio = new Audio();
+    audio.src = "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3";
+    audio.load();
+    audio.play();
     let promesa = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.redSts = false;
@@ -75,7 +82,10 @@ export class AppComponent {
   }
   illBlue() {
     this.blueSts = true;
-
+    var audio = new Audio();
+    audio.src = "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3";
+    audio.load();
+    audio.play();
     let promesa = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.blueSts = false;
@@ -86,7 +96,10 @@ export class AppComponent {
   }
   illYellow() {
     this.yellowSts = true;
-
+    var audio = new Audio();
+    audio.src = "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3";
+    audio.load();
+    audio.play();
     let promesa = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.yellowSts = false;
@@ -112,17 +125,23 @@ export class AppComponent {
       if (this.compare(this.arr, this.arrH)) {
         this.contador += 1;
         this.addPC()
+
+        //Cuando ganamos
+        if(this.contador == 20){
+          this.flagWin = true;
+          this.on()
+        }
       }//Nos hemos equivocado
-      else{
+      else {
         //modo no estricto
-        if(!this.strict){
+        if (!this.strict) {
           this.arrH = []
           this.proceso(this.arr)
         }//modo estricto
-        else{
+        else {
           this.contador = "!!"
           this.flagError = true;
-          setTimeout(()=>{
+          setTimeout(() => {
             this.arrH = []
             this.arr = []
             this.contador = 0
@@ -131,7 +150,7 @@ export class AppComponent {
             this.addPC()
 
 
-          },3000)
+          }, 3000)
         }
       }
     }
@@ -147,20 +166,23 @@ export class AppComponent {
     return true;
   }
 
-  on(){
-    this.arrH=[]
-    this.arr=[]
+  on() {
+    this.arrH = []
+    this.arr = []
     this.flagBegin = true;
     this.addPC();
     this.proceso(this.arr)
     this.contador = 0
+    setTimeout(()=>{
+      this.flagWin = false;
+    },2000)
   }
 
-  off(){
+  off() {
     this.flagBegin = false;
     this.contador = "--"
-    this.arrH=[]
-    this.arr=[]
+    this.arrH = []
+    this.arr = []
 
   }
 
